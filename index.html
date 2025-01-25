@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Button</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #ffe4e1; /* Нежно-розовый фон */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .heart-container {
+            position: relative;
+            width: 400px; /* Увеличение размера сердечка */
+            height: 400px;
+            margin-bottom: 20px;
+        }
+
+        .heart-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.8);
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            clip-path: path('M50 91.6s-3.5-2.3-7.2-5.3c-10.6-8.3-20.6-16.2-25.9-26.6C11.4 49.2 10 39.6 10 34c0-11.4 9.3-20.7 20.7-20.7 5.9 0 11.4 2.4 15.3 6.4 3.9-4 9.4-6.4 15.3-6.4 11.4 0 20.7 9.3 20.7 20.7 0 5.6-1.4 15.2-6.9 25.6-5.3 10.4-15.3 18.3-25.9 26.6-3.7 3-7.2 5.3-7.2 5.3z');
+        }
+
+        h1 {
+            font-size: 56px; /* Увеличенный шрифт для надписи */
+            color: black; /* Чёрный цвет текста */
+            margin: 0;
+            z-index: 2;
+        }
+
+        .button {
+            width: 250px; /* Увеличенная ширина кнопки */
+            height: 70px; /* Увеличенная высота кнопки */
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-size: 28px; /* Увеличенный шрифт для кнопки */
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            user-select: none;
+            transition: transform 0.2s;
+            z-index: 2;
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container">
+        <h1>Happy Valentine's Day</h1>
+    </div>
+    <div class="button" onclick="goToChoices()">Click</div>
+
+    <script>
+        function goToChoices() {
+            document.body.innerHTML = `
+                <div class="question-container">
+                    <h2>Where you want to go?</h2>
+                    <div class="choices">
+                        <button class="choice" onclick="goToCoffeeTea()">Coffee/Tea</button>
+                        <button class="choice" onclick="goToCinema()">Cinema</button>
+                    </div>
+                </div>
+                <style>
+                    body {
+                        margin: 0;
+                        background-color: #f5f5dc; /* Нежно-бежевый фон */
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        text-align: center;
+                    }
+
+                    .question-container {
+                        text-align: center;
+                    }
+
+                    h2 {
+                        font-size: 36px;
+                        margin-bottom: 20px;
+                        color: black;
+                    }
+
+                    .choices {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 20px;
+                    }
+
+                    .choice {
+                        margin: 10px;
+                        padding: 15px 30px;
+                        font-size: 28px;
+                        font-weight: bold;
+                        color: black; /* Чёрный цвет текста */
+                        background-color: #f5f5dc; /* Цвет фона совпадает с основным */
+                        border: 2px solid black;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                    }
+
+                    .choice:hover {
+                        transform: scale(1.05);
+                    }
+                </style>
+            `;
+        }
+
+        function goToCoffeeTea() {
+            document.body.innerHTML = `
+                <div>At 16:00 InBaker Sunday</div>
+                <style>
+                    body {
+                        margin: 0;
+                        background-color: #f5f5dc; /* Нежно-бежевый фон */
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        font-size: 36px;
+                        font-weight: bold;
+                        color: black;
+                    }
+                </style>
+            `;
+        }
+
+        function goToCinema() {
+            document.body.innerHTML = `
+                <div>At 16:00 Mega Sunday</div>
+                <style>
+                    body {
+                        margin: 0;
+                        background-color: #f5f5dc; /* Нежно-бежевый фон */
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        font-size: 36px;
+                        font-weight: bold;
+                        color: black;
+                    }
+                </style>
+            `;
+        }
+    </script>
+</body>
+</html>
